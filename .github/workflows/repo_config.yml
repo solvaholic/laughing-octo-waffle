@@ -23,19 +23,19 @@ on:
 # Define the Jobs.                     #
 ########################################
 jobs:
-  build:
-  name: Apply .github/repo_config.json
-  runs-on: ubuntu-latest
+  apply-config:
+    name: Apply .github/repo_config.json
+    runs-on: ubuntu-latest
 
-  steps:
-    ####################################
-    # Check out the code base.         #
-    ####################################
-    - name: Checkout Code
-      uses: actions/checkout@v2
+    steps:
+      ####################################
+      # Check out the code base.         #
+      ####################################
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-    ####################################
-    # Run Linter against code base.    #
-    ####################################
-    - name: Assert Repo Config
-      uses: solvaholic/laughing-octo-waffle@main
+      ####################################
+      # Run Linter against code base.    #
+      ####################################
+      - name: Assert Repo Config
+        uses: solvaholic/laughing-octo-waffle@add_repo_config

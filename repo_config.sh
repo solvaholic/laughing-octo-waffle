@@ -2,7 +2,7 @@
 
 # https://docs.github.com/en/free-pro-team@latest/actions/reference/environment-variables
 
-env
+echo "INPUT_DEFAULT-BRANCH is '${INPUT_DEFAULT-BRANCH}'"
 
 _token="${INPUT_GITHUB-TOKEN}"
 _repo="${GITHUB_REPOSITORY}"

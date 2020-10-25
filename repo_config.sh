@@ -6,9 +6,9 @@ env
 
 _token="${INPUT_GITHUB-TOKEN}"
 _repo="${GITHUB_REPOSITORY}"
-_branch="${INPUT_DEFAULT-BRANCH}"
-_url="${INPUT_API-URL}"
-_file="${INPUT_CONFIG-FILE}"
+_branch="main"
+_url="${GITHUB_API_URL}"
+_file=".github/repo_config.json"
 
 if [ -r "${_file}" ]; then
 

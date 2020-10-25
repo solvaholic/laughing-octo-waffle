@@ -17,13 +17,9 @@ inputs:
     description: 'Path to the JSON file containing the configuration'
     required: true
     default: ${{ github.workspace }}/.github/repo_config.json
-  api-url:
-    description: 'Base URL for the GitHub REST API'
-    required: true
-    default: 'https://api.github.com'
 runs:
   using: "composite"
   steps:
     - id: apply-settings
       run: ${{ github.action_path }}/repo_config.sh
-      shell: sh
+      shell: bash

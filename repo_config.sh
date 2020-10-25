@@ -2,6 +2,8 @@
 
 # https://docs.github.com/en/free-pro-team@latest/actions/reference/environment-variables
 
+env
+
 _token="${INPUT_GITHUB-TOKEN}"
 _repo="${GITHUB_REPOSITORY}"
 _branch="${INPUT_DEFAULT-BRANCH}"

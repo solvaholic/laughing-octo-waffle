@@ -6,7 +6,7 @@ env
 
 _token="${INPUT_GITHUB-TOKEN}"
 _repo="${GITHUB_REPOSITORY}"
-_branch="main"
+_branch="${INPUT_DEFAULT-BRANCH}"
 _url="${GITHUB_API_URL}"
 _file=".github/repo_config.json"
 

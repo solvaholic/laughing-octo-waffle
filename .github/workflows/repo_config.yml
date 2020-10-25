@@ -16,8 +16,8 @@ on:
   schedule:
     - cron: "0 6 * * *"
   push:
-    paths:
-      - .github/workflows/repo_config.yml
+    # paths:
+    #   - .github/workflows/repo_config.yml
 
 ########################################
 # Define the Jobs.                     #

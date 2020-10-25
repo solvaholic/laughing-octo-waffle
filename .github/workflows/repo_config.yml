@@ -38,4 +38,4 @@ jobs:
       # Run Linter against code base.    #
       ####################################
       - name: Assert Repo Config
-        uses: solvaholic/laughing-octo-waffle
+        uses: solvaholic/laughing-octo-waffle/action.yml@main

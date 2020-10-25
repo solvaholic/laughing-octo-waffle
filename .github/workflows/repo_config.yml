@@ -1,0 +1,41 @@
+---
+########################################
+########################################
+### Repository Configuration as Code ###
+########################################
+########################################
+name: Repository Configuration
+
+# https://help.github.com/en/articles/workflow-syntax-for-github-actions
+
+########################################
+# Start every day at 0600 UTC, and     #
+# when this workflow file is changed.  #
+########################################
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  push:
+    paths:
+      - .github/workflows/repo_config.yml
+
+########################################
+# Define the Jobs.                     #
+########################################
+jobs:
+  build:
+  name: Apply .github/repo_config.json
+  runs-on: ubuntu-latest
+
+  steps:
+    ####################################
+    # Check out the code base.         #
+    ####################################
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    ####################################
+    # Run Linter against code base.    #
+    ####################################
+    - name: Assert Repo Config
+      uses: solvaholic/laughing-octo-waffle@main

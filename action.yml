@@ -1,0 +1,29 @@
+name: 'Repo Config'
+description: 'Manage your repository configuration as code.'
+author: '@solvaholic'
+branding:
+  icon: 'settings'
+  color: 'blue'
+inputs:
+  github-token:
+    description: 'GitHub token for API access'
+    required: true
+    default: ${{ github.token }}
+  default-branch:
+    description: 'Default branch of the repository'
+    required: true
+    default: 'main'
+  config-file:
+    description: 'Path to the JSON file containing the configuration'
+    required: true
+    default: ${{ github.workspace }}/.github/repo_config.json
+  api-url:
+    description: 'Base URL for the GitHub REST API'
+    required: true
+    default: 'https://api.github.com'
+runs:
+  using: "composite"
+  steps:
+    - id: apply-settings
+      run: ${{ github.action_path }}/repo_config.sh
+      shell: sh

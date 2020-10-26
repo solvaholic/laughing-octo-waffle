@@ -6,8 +6,6 @@
 ########################################
 name: Repository Configuration
 
-# https://help.github.com/en/articles/workflow-syntax-for-github-actions
-
 ########################################
 # Start every day at 0600 UTC, and     #
 # when this workflow file changes.     #

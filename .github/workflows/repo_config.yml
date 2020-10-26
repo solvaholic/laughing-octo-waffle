@@ -28,14 +28,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      ####################################
-      # Check out the code base.         #
-      ####################################
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      ####################################
-      # Run Linter against code base.    #
-      ####################################
       - name: Assert Repo Config
         uses: solvaholic/laughing-octo-waffle@add_repo_config
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

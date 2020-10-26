@@ -4,11 +4,6 @@ author: '@solvaholic'
 branding:
   icon: 'settings'
   color: 'blue'
-inputs:
-  config_file:
-    description: 'Path to the JSON file containing the configuration'
-    required: true
-    default: .github/repo_config.json
 runs:
   using: "composite"
   steps:

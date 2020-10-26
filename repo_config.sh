@@ -2,13 +2,13 @@
 
 # https://docs.github.com/en/free-pro-team@latest/actions/reference/environment-variables
 
-echo "INPUT_CONFIG_FILE is '${INPUT_CONFIG_FILE}'"
+echo "CONFIG_FILE is '${CONFIG_FILE}'"
 
 _token="${GITHUB_TOKEN}"
 _repo="${GITHUB_REPOSITORY}"
 _branch="${DEFAULT_BRANCH:-main}"
 _url="${GITHUB_API_URL}"
-_file="${INPUT_CONFIG_FILE}"
+_file="${CONFIG_FILE:-.github/repo_config.json}"
 
 if [ -r "${_file}" ]; then
 

@@ -2,8 +2,6 @@
 
 # https://docs.github.com/en/free-pro-team@latest/actions/reference/environment-variables
 
-echo "CONFIG_FILE is '${CONFIG_FILE}'"
-
 _token="${GITHUB_TOKEN}"
 _repo="${GITHUB_REPOSITORY}"
 _branch="${DEFAULT_BRANCH:-main}"

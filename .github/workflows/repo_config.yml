@@ -4,7 +4,7 @@
 ### Repository Configuration as Code ###
 ########################################
 ########################################
-name: Repository Configuration
+name: Configure Repository
 
 ########################################
 # Start every day at 0600 UTC, and     #
@@ -30,6 +30,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Assert Repo Config
-        uses: solvaholic/laughing-octo-waffle@add_repo_config
+        uses: solvaholic/laughing-octo-waffle@main
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}

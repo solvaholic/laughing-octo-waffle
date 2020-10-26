@@ -4,7 +4,7 @@
 
 _token="${GITHUB_TOKEN}"
 _repo="${GITHUB_REPOSITORY}"
-_branch="${DEFAULT_BRANCH:-main}"
+_branch="${INPUT_DEFAULT_BRANCH:-master}"
 _url="${GITHUB_API_URL}"
 _file="${CONFIG_FILE:-.github/repo_config.json}"
 

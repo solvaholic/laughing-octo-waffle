@@ -6,6 +6,8 @@
 ########################################
 name: Repository Configuration
 
+# https://help.github.com/en/articles/workflow-syntax-for-github-actions
+
 ########################################
 # Start every day at 0600 UTC, and     #
 # when this workflow file changes.     #
@@ -14,8 +16,8 @@ on:
   schedule:
     - cron: "0 6 * * *"
   push:
-    paths:
-      - .github/workflows/repo_config.yml
+    # paths:
+    #   - .github/workflows/repo_config.yml
 
 ########################################
 # Define the Jobs for this workflow.   #

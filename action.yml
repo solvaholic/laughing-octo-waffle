@@ -4,6 +4,19 @@ author: '@solvaholic'
 branding:
   icon: 'settings'
   color: 'blue'
+inputs:
+  github_token:
+    description: 'GitHub token for API access'
+    required: true
+    default: ${{ github.token }}
+  default_branch:
+    description: 'Default branch of the repository'
+    required: true
+    default: 'main'
+  config_file:
+    description: 'Path to the JSON file containing the configuration'
+    required: true
+    default: ${{ github.workspace }}/.github/repo_config.json
 runs:
   using: "composite"
   steps:

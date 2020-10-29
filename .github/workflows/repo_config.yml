@@ -1,17 +1,6 @@
 ---
 name: Configure Repository
 
-# TODO: Make this (below) happen:
-
-# When should this workflow do a dry run?
-# 
-# - When .github/workflows/repo_config.yml changes in any branch.
-# - When .github/repo_config.json changes in a non-default branch.
-# 
-# When should this workflow assert the config?
-# 
-# - When .github/repo_config.json changes in the default branch.
-
 on:
   # Run when the workflow or repo config files change.
   push:

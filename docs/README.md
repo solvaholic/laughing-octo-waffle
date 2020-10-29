@@ -1,2 +1,41 @@
-# template
-@solvaholic's repository template
+# Repo Config
+
+Manage repository settings and configuration as code.
+
+## Example workflow
+
+```yaml
+---
+name: Configure Repository
+
+on:
+  # Run when the workflow or repo config files change.
+  push:
+    paths:
+      - .github/workflows/repo_config.yml
+      - .github/repo_config.json
+
+jobs:
+  apply-config:
+    name: Apply .github/repo_config.json
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Assert Repo Config (Dry Run)
+        # Dry run when triggered from non-default branch.
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: solvahol/repo-config@main
+        env:
+          REPO_CONFIG_DRY_RUN: 'true'
+          GITHUB_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
+
+      - name: Assert Repo Config
+        # Assert config when triggered from default branch.
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: solvahol/repo-config@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
+```

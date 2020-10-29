@@ -1,7 +1,16 @@
 name: 'Repo Config'
-description: 'Manage your repository settings and configuration as 
-              code.'
+description: 'Manage repository settings and configuration as code.'
 author: '@solvaholic'
+inputs:
+  default_branch:
+    description: 'Default branch of your repository.'
+    required: true
+    default: 'main'
+  config_file:
+    description: 'Path, relative to your repository root, of the
+                  repository configuration file.'
+    required: true
+    default: '.github/repo_config.json'
 branding:
   icon: 'settings'
   color: 'blue'
@@ -11,3 +20,4 @@ runs:
     - id: apply-settings
       run: ${{ github.action_path }}/repo_config.sh
       shell: bash
+      env:

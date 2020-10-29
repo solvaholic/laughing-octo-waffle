@@ -7,6 +7,13 @@ _repo="${GITHUB_REPOSITORY}"
 _branch="${DEFAULT_BRANCH:-main}"
 _url="${GITHUB_API_URL}"
 _file="${CONFIG_FILE:-.github/repo_config.json}"
+_dry_run="${REPO_CONFIG_DRY_RUN}"
+
+if [ -n "${_dry_run}" ]; then
+  # TODO: Figure out how to do a dry run, and do it.
+  echo "Hiyo, nothing to see here."
+  exit
+fi
 
 if [ -r "${_file}" ]; then
 

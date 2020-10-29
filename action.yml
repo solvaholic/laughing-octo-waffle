@@ -1,5 +1,6 @@
 name: 'Repo Config'
-description: 'Manage your repository settings and configuration as code.'
+description: 'Manage your repository settings and configuration as 
+              code.'
 author: '@solvaholic'
 branding:
   icon: 'settings'

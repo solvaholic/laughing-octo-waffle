@@ -1,25 +1,24 @@
 ---
-########################################
-########################################
-### Repository Configuration as Code ###
-########################################
-########################################
 name: Configure Repository
 
-########################################
-# Start every day at 0600 UTC, and     #
-# when this workflow file changes.     #
-########################################
-on:
-  schedule:
-    - cron: "0 6 * * *"
-  push:
-    # paths:
-    #   - .github/workflows/repo_config.yml
+# TODO: Make this (below) happen:
 
-########################################
-# Define the Jobs for this workflow.   #
-########################################
+# When should this workflow do a dry run?
+# 
+# - When .github/workflows/repo_config.yml changes in any branch.
+# - When .github/repo_config.json changes in a non-default branch.
+# 
+# When should this workflow assert the config?
+# 
+# - When .github/repo_config.json changes in the default branch.
+
+on:
+  # Run when the workflow or repo config files change.
+  push:
+    paths:
+      - .github/workflows/repo_config.yml
+      - .github/repo_config.json
+
 jobs:
   apply-config:
     name: Apply .github/repo_config.json
@@ -29,7 +28,16 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
+      - name: Assert Repo Config (Dry Run)
+        # Dry run when triggered from non-default branch.
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: solvaholic/laughing-octo-waffle@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
+
       - name: Assert Repo Config
+        # Assert config when triggered from default branch.
+        if: ${{ github.ref == 'refs/heads/main' }}
         uses: solvaholic/laughing-octo-waffle@main
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}

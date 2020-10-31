@@ -31,8 +31,6 @@ inputs:
     required: true
     default: ''
 
-
-
 branding:
   icon: 'settings'
   color: 'blue'

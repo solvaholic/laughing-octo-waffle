@@ -20,7 +20,7 @@ jobs:
       - name: Assert Repo Config (Dry Run)
         # Dry run when triggered from non-default branch.
         if: ${{ github.ref != 'refs/heads/main' }}
-        uses: solvaholic/laughing-octo-waffle@main
+        uses: solvaholic/laughing-octo-waffle@add-topics
         env:
           REPO_CONFIG_DRY_RUN: 'true'
           GITHUB_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
@@ -28,6 +28,6 @@ jobs:
       - name: Assert Repo Config
         # Assert config when triggered from default branch.
         if: ${{ github.ref == 'refs/heads/main' }}
-        uses: solvaholic/laughing-octo-waffle@main
+        uses: solvaholic/laughing-octo-waffle@add-topics
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}

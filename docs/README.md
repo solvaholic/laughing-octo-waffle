@@ -37,7 +37,7 @@ jobs:
       - name: Assert Repo Config (Dry Run)
         # Dry run when triggered from non-default branch.
         if: ${{ github.ref != 'refs/heads/main' }}
-        uses: solvahol/repo-config@main
+        uses: solvaholic/repo-config@main
         with:
           dry_run: 'true'
           github_token: ${{ secrets.REPO_ADMIN_TOKEN }}
@@ -45,7 +45,7 @@ jobs:
       - name: Assert Repo Config
         # Assert config when triggered from default branch.
         if: ${{ github.ref == 'refs/heads/main' }}
-        uses: solvahol/repo-config@main
+        uses: solvaholic/repo-config@main
         with:
           github_token: ${{ secrets.REPO_ADMIN_TOKEN }}
 ```

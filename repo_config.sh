@@ -4,9 +4,9 @@
 
 _token="${GITHUB_TOKEN}"
 _repo="${GITHUB_REPOSITORY}"
-_branch="${DEFAULT_BRANCH:-main}"
+_branch="${DEFAULT_BRANCH:-UNSET}"
 _url="${GITHUB_API_URL}"
-_file="${CONFIG_FILE:-.github/repo_config.json}"
+_file="${CONFIG_FILE:-UNSET}"
 _dry_run="${REPO_CONFIG_DRY_RUN}"
 
 if [ -n "${_dry_run}" ]; then
@@ -30,6 +30,13 @@ if [ -r "${_file}" ]; then
     -H "Content-Type: application/json" \
     -H "Authorization: token ${_token}" \
     "${_url}/repos/${_repo}/branches/${_branch}/protection"
+
+  jq .topics "${_file}" | curl -i -d @- \
+    -X PUT \
+    -H "Accept: application/vnd.github.luke-cage-preview+json" \
+    -H "Content-Type: application/json" \
+    -H "Authorization: token ${_token}" \
+    "${_url}/repos/${_repo}/topics"
 
 else
 

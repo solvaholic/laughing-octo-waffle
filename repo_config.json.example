@@ -25,5 +25,8 @@
     "restrictions": null,
     "allow_force_pushes": false,
     "allow_deletions": false
+  },
+  "topics": {
+    "names": []
   }
 }

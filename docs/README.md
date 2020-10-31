@@ -2,7 +2,7 @@
 
 Manage repository settings and configuration as code.
 
-## :warning: CAUTION :warning:
+## :warning: CAUTION
 
 This GitHub Action requires a personal access token with permission to modify repository configuration.
 
@@ -50,7 +50,7 @@ jobs:
           github_token: ${{ secrets.REPO_ADMIN_TOKEN }}
 ```
 
-## Thank you!
+## Thank You
 
 Thanks to @kbrashears5 whose [work](https://github.com/kbrashears5/github-action-repo-settings-sync) inspired mine here.
 

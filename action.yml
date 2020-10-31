@@ -12,8 +12,8 @@ inputs:
     required: true
     default: 'main'
   github_api_url:
-    description: 'URL for your GitHub API. Only set this if you're
-                  using GitHub Enterprise Server.'
+    description: 'URL for your GitHub API. Only set this if you use
+                  GitHub Enterprise Server.'
     required: true
     default: 'https://api.github.com'
   github_repository:

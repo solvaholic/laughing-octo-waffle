@@ -49,15 +49,3 @@ runs:
         GITHUB_REPOSITORY: ${{ inputs.github_repository }}
         GITHUB_TOKEN: ${{ inputs.github_token }}
         REPO_CONFIG_DRY_RUN: ${{ inputs.dry_run }}
-        
-
-
-
-
-
-_token="${GITHUB_TOKEN}"
-_repo="${GITHUB_REPOSITORY}"
-_branch="${DEFAULT_BRANCH:-UNSET}"
-_url="${GITHUB_API_URL}"
-_file="${CONFIG_FILE:-UNSET}"
-_dry_run="${REPO_CONFIG_DRY_RUN}"

@@ -22,7 +22,7 @@ jobs:
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: solvaholic/laughing-octo-waffle@add-topics
         env:
-          REPO_CONFIG_DRY_RUN: 'true'
+          # REPO_CONFIG_DRY_RUN: 'true'
           GITHUB_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
 
       - name: Assert Repo Config

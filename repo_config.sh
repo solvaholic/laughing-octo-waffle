@@ -33,7 +33,7 @@ if [ -r "${_file}" ]; then
 
   jq .topics "${_file}" | curl -i -d @- \
     -X PUT \
-    -H "Accept: application/vnd.github.luke-cage-preview+json" \
+    -H "Accept: application/vnd.github.mercy-preview+json" \
     -H "Content-Type: application/json" \
     -H "Authorization: token ${_token}" \
     "${_url}/repos/${_repo}/topics"

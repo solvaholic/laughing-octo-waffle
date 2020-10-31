@@ -2,15 +2,37 @@ name: 'Repo Config'
 description: 'Manage repository settings and configuration as code.'
 author: '@solvaholic'
 inputs:
-  default_branch:
-    description: 'Default branch of your repository.'
-    required: true
-    default: 'main'
   config_file:
     description: 'Path, relative to your repository root, of the
                   repository configuration file.'
     required: true
     default: '.github/repo_config.json'
+  default_branch:
+    description: 'Default branch of your repository.'
+    required: true
+    default: 'main'
+  github_api_url:
+    description: 'URL for your GitHub API. Only set this if you're
+                  using GitHub Enterprise Server.'
+    required: true
+    default: 'https://api.github.com'
+  github_repository:
+    description: 'Name-with-owner of the repository to configure.'
+    required: true
+    default: ${{ github.repository }}
+  github_token:
+    description: 'API token with permission to configure the
+                  repository.'
+    required: true
+    default: 'UNSET'
+  dry_run:
+    description: 'Set to a non-zero-length string to run without
+                  modifying the repository.'
+    required: true
+    default: ''
+
+
+
 branding:
   icon: 'settings'
   color: 'blue'
@@ -21,5 +43,21 @@ runs:
       run: ${{ github.action_path }}/repo_config.sh
       shell: bash
       env:
-        DEFAULT_BRANCH: ${{ inputs.default_branch }}
         CONFIG_FILE: ${{ inputs.config_file }}
+        DEFAULT_BRANCH: ${{ inputs.default_branch }}
+        GITHUB_API_URL: ${{ inputs.github_api_url }}
+        GITHUB_REPOSITORY: ${{ inputs.github_repository }}
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+        REPO_CONFIG_DRY_RUN: ${{ inputs.dry_run }}
+        
+
+
+
+
+
+_token="${GITHUB_TOKEN}"
+_repo="${GITHUB_REPOSITORY}"
+_branch="${DEFAULT_BRANCH:-UNSET}"
+_url="${GITHUB_API_URL}"
+_file="${CONFIG_FILE:-UNSET}"
+_dry_run="${REPO_CONFIG_DRY_RUN}"
